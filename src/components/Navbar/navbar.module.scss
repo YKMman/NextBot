@@ -1,0 +1,36 @@
+.navbar{
+    max-height: fit-content;
+    height: 100%;
+    margin-top: auto;
+    padding: 0 30px;
+    background: transparent;
+    padding-bottom: 9px;
+}
+
+.navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar ul li a{
+    row-gap: 2px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.btn {
+      svg{
+        fill: white;
+      }
+  }
+  
+.activeBtn {
+      svg{
+        fill: var(--primary);
+      }
+  }
+  

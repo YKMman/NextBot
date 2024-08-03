@@ -1,3 +1,44 @@
+:root{
+  --primary: #6dd0fb;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: var(--tg-theme-secondary-bg-color, white);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+html,
+body,
+#root{
+  height: 100%;
+  min-height: 100%;
+}
+
+ul,
+li{
+  list-style: none;
+}
+
+a{
+  color: inherit;
+  display: inline;
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+}
+
+button,
+input,
+textarea{
+  border: none;
+  background: none;
+  outline: noen;
 }
