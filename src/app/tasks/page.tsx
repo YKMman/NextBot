@@ -16,6 +16,7 @@ export default function TasksPage() {
   const [copyLink, setCopyLink] = useState<boolean>(false)
 
   const handleClick = () => {
+    // @ts-ignore
     navigator.clipboard.writeText(`https://t.me/TRANSPORT_TRUCKI_BOT/myapp?startapp=${userData.telegram_id}`)
     setCopyLink(true)
   }
@@ -23,6 +24,7 @@ export default function TasksPage() {
 
   useEffect(() => {
       const data = {
+        // @ts-ignore 
         telegram_id: userData.telegram_id
       }
       fetch('/api/tasks', {
@@ -64,8 +66,10 @@ export default function TasksPage() {
             <div className={styles.item}>
               <div className={styles.left}>
                 <p>Invite 5 frens</p>
+                {/* @ts-ignore */}
                 <span>+{telegram.award_invited_friends && telegram.award_invited_friends} TTC</span>
               </div>
+              {/* @ts-ignore */}
               <span>{telegram.count && telegram.count.length}/{telegram.completed && telegram.completed}</span>
             </div>
             <button className={styles.invite} onClick={handleClick}>{copyLink ? 'the link has been copied' : "invite"}</button>

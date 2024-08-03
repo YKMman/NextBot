@@ -91,7 +91,7 @@ export default function Home() {
       dispatch(setUserTelegramData(data));
     })
     .catch((error) => console.error(error))
-  }, [initData])
+  }, [initData, dispatch, userRows])
 
   if (!initDataRows) {
     return (
@@ -124,6 +124,7 @@ export default function Home() {
           {userData.length > 0 ? userData.map((el, index) => {
             return (
               <>
+                {/* @ts-ignore */}
                 <span key={index}>{el.ttc_coin}</span>
               </>
             )
