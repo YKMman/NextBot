@@ -14,6 +14,13 @@
     justify-content: center;
 }
 
+.completed{
+    color: grey;
+}
+.nocompleted{
+
+}
+
 .avatar{
     max-width: 100px;
     object-fit: cover;
@@ -31,6 +38,7 @@
 }
 
 .invite {
+    cursor: pointer;
     background: #6dd0fb;
     border-radius: 20px;
     padding: 10px;
