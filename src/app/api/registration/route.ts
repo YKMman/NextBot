@@ -42,8 +42,10 @@ export async function POST(req:NextRequest, res:NextResponse) {
                 }
                 const tgStartParamName = await conn.query("SELECT * FROM users WHERE telegram_id = $1", [start_param]);
 
+                
                 if (tgStartParamName.rowCount && tgStartParamName.rowCount > 0) {
-                    await conn.query("INSERT INTO refs (telegram_id_inviter, telegram_id_invited, telegram_name) VALUES ($1, $2, $3)", [start_param, telegram_id, telegram_username])
+                    const tgName = tgStartParamName.rows[0].telegram_name
+                    await conn.query("INSERT INTO refs (telegram_id_inviter, telegram_id_invited, telegram_name) VALUES ($1, $2, $3)", [start_param, telegram_id, tgName])
                     return NextResponse.json('зарегистрировали пользователя по этой рефералке')
                 }
 
