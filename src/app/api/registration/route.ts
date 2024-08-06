@@ -37,6 +37,9 @@ export async function POST(req:NextRequest, res:NextResponse) {
                 if (start_param == 'debug') {
                     return NextResponse.json({ message: 'Debug mode' });
                 }
+                if (start_param == telegram_id) {
+                    return NextResponse.json({ message: 'По своей реф перешёл' });
+                }
                 const tgStartParamName = await conn.query("SELECT * FROM users WHERE telegram_id = $1", [start_param]);
 
                 if (tgStartParamName.rowCount && tgStartParamName.rowCount > 0) {
