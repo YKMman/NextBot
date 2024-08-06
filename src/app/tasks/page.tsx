@@ -17,7 +17,7 @@ export default function TasksPage() {
 
   const handleClick = () => {
     // @ts-ignore
-    navigator.clipboard.writeText(`https://t.me/TRANSPORT_TRUCKI_BOT/myapp?startapp=${userData.telegram_id}`)
+    navigator.clipboard.writeText(`https://t.me/TRANSPORT_TRUCKI_BOT/myapp?startapp=${telegram.user[0].telegram_id}`)
     setCopyLink(true)
   }
 
