@@ -71,27 +71,26 @@ export default function Home() {
 
    // ! регистрация
   useEffect(() => {
-    const data = {
+    const dataJSON = {
       init_data_rows: initDataRows,
       user_rows: userRows,
     }
-    fetch('/api/registration', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(data)
-    })
-    .then((res) => {
-      console.log(res)
-      return res.json();
-    })
-    .then((data) => {
-      setUserData(data);
-      dispatch(setUserTelegramData(data));
-    })
-    .catch((error) => console.error(error))
-  }, [initData, dispatch, userRows])
+      fetch('/api/registration', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(dataJSON)
+      })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setUserData(data);
+        dispatch(setUserTelegramData(data));
+      })
+      .catch((error) => console.error(error))
+  }, [])
 
   if (!initDataRows) {
     return (
