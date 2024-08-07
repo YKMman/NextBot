@@ -107,6 +107,8 @@ export default function Home() {
     );
   }
 
+
+
   return (
     <div className={styles.page}>
       <div className={styles.user}>
@@ -117,7 +119,8 @@ export default function Home() {
           />
         </div>
         <div className={styles.username}>
-          {userRows && userRows.find((el) => el.title === 'username')?.value}
+          {/* @ts-ignore */}
+          {userData.telegram_name && userData.telegram_name}
         </div>
         <div className={styles.ttc}>
           {/* @ts-ignore */}
