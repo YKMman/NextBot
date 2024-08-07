@@ -67,7 +67,7 @@ import Image from 'next/image';
                     alt='logo'
                   />
                   <div>
-                    <span>{el.id}</span>
+                    <span>{index}</span>
                     <p>{el.telegram_name}</p>
                   </div>
                 </li>

@@ -120,7 +120,8 @@ export default function Home() {
           {userRows && userRows.find((el) => el.title === 'username')?.value}
         </div>
         <div className={styles.ttc}>
-          {userData.length > 0 ? userData.map((el, index) => {
+                          {/* @ts-ignore */}
+          {userData[0].ttc_coin > 0 ? userData.map((el, index) => {
             return (
               <>
                 {/* @ts-ignore */}
