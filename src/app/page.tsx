@@ -33,7 +33,7 @@ export default function Home() {
   const initDataRaw = useLaunchParams().initDataRaw;
   const initData = useInitData();
 
-  const [userData, setUserData] = useState<[]>([])
+  const [userData, setUserData] = useState<{}>({})
 
   const dispatch = useAppDispatch();
 
@@ -120,18 +120,8 @@ export default function Home() {
           {userRows && userRows.find((el) => el.title === 'username')?.value}
         </div>
         <div className={styles.ttc}>
-                          {/* @ts-ignore */}
-          {userData[0].ttc_coin > 0 ? userData.map((el, index) => {
-            return (
-              <>
-                {/* @ts-ignore */}
-                <span key={index}>{el.ttc_coin}</span>
-              </>
-            )
-          })
-          : 
-          <span>0</span>
-          }
+          {/* @ts-ignore */}
+          {userData.ttc_coin && <span>{userData.ttc_coin}</span>}
         </div>
       </div>
       <div className={styles.game}>
