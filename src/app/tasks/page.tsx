@@ -63,7 +63,7 @@ export default function TasksPage() {
         <h3 className={styles.title}>Tasks list</h3>
         <ul className={styles.list}>
                           {/* @ts-ignore */}
-          <li className={`${(telegram.count && telegram.count > telegram.completed) ? `${styles.completed}` : `${styles.nocompleted}` }`}>
+          <li className={`${(telegram.count && telegram.count.length > telegram.completed) ? `${styles.completed}` : `${styles.nocompleted}` }`}>
             <div className={styles.item}>
               <div className={styles.left}>
                 <p>Invite 5 frens</p>

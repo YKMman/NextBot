@@ -45,7 +45,7 @@ export async function POST(req:NextRequest, res:NextResponse) {
                 
                 if (tgStartParamName.rowCount && tgStartParamName.rowCount > 0) {
                     const tgName = tgStartParamName.rows[0].telegram_name
-                    await conn.query("INSERT INTO refs (telegram_id_inviter, telegram_id_invited, telegram_name) VALUES ($1, $2, $3)", [start_param, telegram_id, tgName])
+                    await conn.query("INSERT INTO refs (telegram_name, telegram_id_inviter, telegram_id_invited) VALUES ($1, $2, $3)", [tgName, start_param, telegram_id])
                     return NextResponse.json('зарегистрировали пользователя по этой рефералке')
                 }
 
