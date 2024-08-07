@@ -40,12 +40,12 @@ export async function POST(req:NextRequest, res:NextResponse) {
                 if (start_param == telegram_id) {
                     return NextResponse.json({ message: 'По своей реф перешёл' });
                 }
-                const tgStartParamName = await conn.query("SELECT * FROM users WHERE telegram_id = $1", [start_param]);
+                const tgStartParamName = await conn.query("SELECT * FROM users WHERE telegram_id = $1", [start_param]); 
 
-                
+
                 if (tgStartParamName.rowCount && tgStartParamName.rowCount > 0) {
                     const tgName = tgStartParamName.rows[0].telegram_name
-                    await conn.query("INSERT INTO refs (telegram_name, telegram_id_inviter, telegram_id_invited) VALUES ($1, $2, $3)", [tgName, start_param, telegram_id])
+                    await conn.query("INSERT INTO refs (telegram_name, telegram_id_inviter, telegram_id_invited) VALUES ($1, $2, $3)", [telegram_username, start_param, telegram_id])
                     return NextResponse.json('зарегистрировали пользователя по этой рефералке')
                 }
 
