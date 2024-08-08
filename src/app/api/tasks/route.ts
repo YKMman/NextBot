@@ -15,10 +15,12 @@ export async function POST(
             const queryTg = await conn.query("SELECT * FROM quests")
             const userDB = await conn.query("SELECT * FROM users WHERE telegram_id = $1", [telegram_id])
 
-            if ((queryCount.rows && !userDB.rows[0].invites_five_friends) && (queryCount.rows.length >= Number(process.env.AWARD_FRIENDS_INVITE) )) {
-                await conn.query("UPDATE users SET invites_five_friends = true, ttc_coin = ttc_coin + $1 WHERE id = $2", [process.env.AWARD_FRIENDS_INVITE , telegram_id]);
+            if ((queryCount.rows && !userDB.rows[0].invites_five_friends) && (queryCount.rows.length >= Number(process.env.CLIENT_FRIENDS_QUEST_COUNT_LIMIT) )) {
+                await conn.query("UPDATE users SET invites_five_friends = true, ttc_coin = ttc_coin + $1 WHERE telegram_id = $2", [process.env.AWARD_FRIENDS_INVITE , telegram_id]);
+            } else {
+                console.log('Update condition not met');
             }
-    
+            
             const data = {  
                 user: userDB.rows,
                 count: queryCount.rows,

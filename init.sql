@@ -34,7 +34,7 @@ CREATE TABLE users(
     ttc_coin bigint NOT NULL DEFAULT 0
 );
 
-
+-- ALTER TABLE users ADD COLUMN invites_five_friends boolean DEFAULT false
 
 
 -- INSERT INTO users (telegram_name, telegram_id, ttc_coin) VALUES ('misha', 0, 0);

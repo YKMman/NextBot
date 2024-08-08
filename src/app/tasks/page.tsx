@@ -38,17 +38,11 @@ export default function TasksPage() {
         return res.json();
       })
       .then((data) => {
-        console.log(data)
         setTelegram(...telegram, data);
       })
       .catch((error) => console.error(error))
   
     }, [])
-
-    useEffect(() => {
-      console.log(telegram)
-    }, [telegram])
-
 
 
 
